@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "real_estates",
+  "info": {
+    "singularName": "real-estate",
+    "pluralName": "real-estates",
+    "displayName": "Blogs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "popular": {
+      "type": "boolean",
+      "default": false
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::type.type",
+      "inversedBy": "blogs"
+    }
+  }
+}
