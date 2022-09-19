@@ -1,0 +1,12 @@
+.dropdownColor {
+    background-color: #2b32b2;
+    border-color: #2b32b2;
+}
+
+.d-block {
+    display: block !important;
+}
+
+.content_Fit{
+        padding: calc(80px + 1.25rem) .625rem 160px !important;
+}
