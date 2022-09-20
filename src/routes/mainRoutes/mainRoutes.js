@@ -13,6 +13,12 @@ export const guestRoutes = [
     exact: true,
     component: React.lazy(() => import('../../views/auth/Login/OtpScreen')),
   },
+  {
+    path: '/reset-password',
+    name: 'OTPVERIFY',
+    exact: true,
+    component: React.lazy(() => import('../../views/auth/Login/ResetPassword')),
+  },
 ];
 
 export const userRoutes = [

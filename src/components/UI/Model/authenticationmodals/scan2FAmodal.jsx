@@ -17,7 +17,7 @@ const Scan2FAModal = ({ isOpen, onClose }) => {
       setCopied(true);
       setTimeout(() => setCopied(false), 1200);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
   const toggle = () => {
