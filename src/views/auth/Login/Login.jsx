@@ -139,7 +139,7 @@ const Login = () => {
             </Col>
           </Row>
         </Container>
-        <Select2faModal isOpen={selct2fa} onClose={setSelect2fa} next={setScan2fa}/>
+        <Select2faModal isOpen={selct2fa} onClose={setSelect2fa} next={setScan2fa} />
         <Scan2FAModal isOpen={scan2fa} onClose={setScan2fa} />
         {successAlert && (
           <SweetAlert
