@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-
 import React, { useState } from 'react';
 // Redux
 
@@ -7,6 +5,7 @@ import { Row, Col, CardBody, Card, Container, Alert, Spinner } from 'reactstrap'
 import './login.css';
 
 // availity-reactstrap-validation
+
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { useSelector } from 'react-redux';
 // import images
