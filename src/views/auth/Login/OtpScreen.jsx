@@ -13,12 +13,14 @@ import { useDispatch, useSelector } from 'react-redux';
 // import * as actions from '../../store/actions';
 // import images
 import mogulLogo from '../../../assets/images/mogullogo.png';
+import Confirm2faModal from '../../../components/UI/Model/authenticationmodals/confirm2faModal';
 // import ForcePasswordModal from '../UI/Model/ForcePasswordModal';
 
 const Otp = () => {
   const [otp, setOtp] = useState('');
   const [time, setTime] = useState(30);
   const [timer, setTimer] = useState('');
+  const [confirmModal,setConfirModal] = useState(false)
   const [forcePassword, setForcepassword] = useState(false);
   const [error, setError] = useState('');
   const [Token, setToken] = useState('');
@@ -107,7 +109,8 @@ const Otp = () => {
                     <div className="mt-3 text-end">
                       <button
                         className="btn btn-primary w-sm waves-effect waves-light w-100"
-                        type="submit"
+                        type="button"
+                        onClick={()=>setConfirModal(true)}
                       >
                         {!isLoading ? <Spinner size="sm" /> : 'Authenticate'}
                       </button>
@@ -119,6 +122,7 @@ const Otp = () => {
           </Row>
         </Container>
       </div>
+       <Confirm2faModal isOpen={confirmModal}/>
     </>
   );
 };

@@ -10,3 +10,7 @@
 .content_Fit{
         padding: calc(80px + 1.25rem) .625rem 160px !important;
 }
+
+.ml-1{
+    margin-left:10px
+}

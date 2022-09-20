@@ -101,3 +101,15 @@
     .form-group {
       width: 100%;
     }
+
+    .orderlist{
+      text-align: start;
+      max-width: 500px;
+      margin: auto;
+      margin-bottom: 15px;
+    }
+
+    .orderlist li{
+      padding: 5px 0;
+      font-weight: 450;
+    }
