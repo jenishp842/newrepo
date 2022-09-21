@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-
 import React, { useState } from 'react';
 // Redux
 
@@ -7,6 +5,7 @@ import { Row, Col, CardBody, Card, Container, Alert, Spinner } from 'reactstrap'
 import './login.css';
 
 // availity-reactstrap-validation
+
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { useSelector } from 'react-redux';
 // import images
@@ -33,7 +32,7 @@ const ResetPassword = () => {
                       </div>
                     )}
                     <AvForm className="form-horizontal">
-                      <div className="mb-4">
+                      <div className="mb-5">
                         <div>
                           <AvField
                             name="password"
@@ -44,7 +43,7 @@ const ResetPassword = () => {
                             placeholder="Enter New Password"
                           />
                         </div>
-                        <div className="d-flex justify-content-end">
+                        <div className="d-flex justify-content-end reset__icon">
                           <i
                             onClick={() => setShow(prev => !prev)}
                             className={
@@ -52,12 +51,11 @@ const ResetPassword = () => {
                                 ? 'fas fa-eye-slash position-absolute mx-3'
                                 : 'fas fa-eye position-absolute mx-3'
                             }
-                            style={{ marginTop: '-25px', paddingRight: '15px' }}
                           />
                         </div>
                       </div>
 
-                      <div className="mb-3">
+                      <div className="mb-5">
                         <div>
                           <AvField
                             name="password"
@@ -68,7 +66,7 @@ const ResetPassword = () => {
                             placeholder="Retype New Password"
                           />
                         </div>
-                        <div className="d-flex justify-content-end">
+                        <div className="d-flex justify-content-end reset__icon">
                           <i
                             onClick={() => setShow(prev => !prev)}
                             className={
@@ -76,7 +74,6 @@ const ResetPassword = () => {
                                 ? 'fas fa-eye-slash position-absolute mx-3'
                                 : 'fas fa-eye position-absolute mx-3'
                             }
-                            style={{ marginTop: '-25px', paddingRight: '15px' }}
                           />
                         </div>
                       </div>
