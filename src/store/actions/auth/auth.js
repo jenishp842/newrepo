@@ -22,3 +22,16 @@ export const loginFail = payload => ({
 export const authenticationValidator = () => ({
   type: actionLabels.AUTHENTICATION_VALIDATOR,
 });
+
+export const clearAuth = () => ({
+  type: actionLabels.CLEAR_AUTH,
+});
+
+export const otpVerify = payload => ({
+  type: actionLabels.OTP_VERIFY,
+  payload,
+});
+
+export const otpVerifySuccess = () => ({
+  type: actionLabels.OTP_VERIFY_SUCCESS,
+});

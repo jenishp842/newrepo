@@ -4,5 +4,7 @@ export const LOGIN_SAGA = 'LOGIN_SAGA';
 export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
-
+export const CLEAR_AUTH = 'CLEAR_AUTH';
+export const OTP_VERIFY = 'OTP_VERIFY';
+export const OTP_VERIFY_SUCCESS = 'OTP_VERIFY_SUCCESS';
 export const AUTHENTICATION_VALIDATOR = 'AUTHENTICATION_VALIDATOR';

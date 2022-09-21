@@ -1,18 +1,18 @@
-import { put, call } from 'redux-saga/effects';
-import { axios } from '../../../http';
-import {
-  loginSuccess,
-  loginFail,
-  loginStart,
-} from '../../actions';
+import { put } from 'redux-saga/effects';
+// import { axios } from '../../../http';
+import { loginSuccess, loginFail, loginStart, otpVerifySuccess } from '../../actions';
 
 export function* loginSaga() {
   yield put(loginStart());
   try {
-    const response = yield axios.get('/api');
-    if(response.status === 200) {
-      yield loginSuccess(response.data);
-      yield call([localStorage, 'setItem'], 'authToken', response.data.token);
+    // const response = yield axios.get('/api');
+    const response = {
+      status: 200,
+      data: { isFirstTimeLogin: true, isForcePasswordUpdate: false, isSuperAdmin: false },
+    };
+    if (response.status===200) {
+      yield put(loginSuccess(response.data));
+      // yield call([localStorage, 'setItem'], 'authToken', response.data.token);
     } else {
       yield put(loginFail('Something went wrong! Please try again.'));
     }
@@ -39,10 +39,16 @@ export function* loginSaga() {
   }
 }
 
+export function* otpVerifySaga() {
+  // yield put(loginStart());
+  yield put(otpVerifySuccess())
+}
+
 export function* authenticationValidatorSaga() {
   yield put(loginStart());
   const token = yield localStorage.getItem('authToken');
   if (!token) {
+    yield put(loginFail(''));
     // yield put(logout()); // logout action
   } else {
     yield put(loginSuccess({ token }));

@@ -1,47 +1,51 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable max-len */
-/* eslint-disable no-useless-escape */
 import React, { useEffect, useState } from 'react';
-// Redux
 import { useHistory } from 'react-router-dom';
 import { Row, Col, CardBody, Card, Container, Alert, Spinner } from 'reactstrap';
 import './login.css';
-
-// availity-reactstrap-validation
 import { AvForm, AvField } from 'availity-reactstrap-validation';
-import { useSelector } from 'react-redux';
-// import images
-
+import { useSelector, useDispatch } from 'react-redux';
 import SweetAlert from 'react-bootstrap-sweetalert';
-import Scan2FAModal from '../../../components/UI/Model/authenticationmodals/scan2FAmodal';
-import Select2faModal from '../../../components/UI/Model/authenticationmodals/select2FA';
-import mogulLogo from '../../../assets/images/mogullogo.png';
-// import * as actions from '../../store/actions';
-import ForgotPasswordModal from '../../../components/UI/Model/authenticationmodals/forgotPasswordModal';
+import * as actions from 'store/actions';
+import Scan2FAModal from 'components/UI/Model/authenticationmodals/scan2FAmodal';
+import Select2faModal from 'components/UI/Model/authenticationmodals/select2FA';
+import mogulLogo from 'assets/images/mogullogo.png';
+import ForgotPasswordModal from 'components/UI/Model/authenticationmodals/forgotPasswordModal';
 
 const Login = () => {
   const history = useHistory();
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [remember, setRemember] = useState(false);
   const [forgot, setForgot] = useState(false);
   const [show, setShow] = useState(false);
   const [successAlert, setSuccessAlert] = useState(false);
   const [selct2fa, setSelect2fa] = useState(false);
   const [scan2fa, setScan2fa] = useState(false);
-  //   const handleSubmit = (err, val) => {
-  //     dispatch(actions.login({ ...val }));
-  //   };
-  const { isLogin, errorMsg, isLoading } = useSelector(state => state.auth);
-  //   useEffect(
-  //     () => () => {
-  //       dispatch(actions.clearAuth());
-  //     },
-  //     [],
-  //   );
+  const { isLogin, errorMsg, isLoading, userData } = useSelector(state => state.auth);
+
+  useEffect(
+    () => () => {
+      dispatch(actions.clearAuth());
+    },
+    [],
+  );
+  const handleSubmit = (err, val) => {
+    dispatch(actions.login(val));
+  };
   useEffect(() => {
     if (isLogin) {
+      if (!userData.isSuperAdmin) {
+        if (userData.isForcePasswordUpdate) {
+          history.push('/reset-password');
+          return;
+        }
+        if (userData.isFirstTimeLogin) {
+          setSelect2fa(true);
+          return;
+        }
+        history.push('/otp');
+        return;
+      }
       history.push('/otp');
       localStorage.setItem('islogin', true);
       localStorage.setItem('remembered', remember);
@@ -70,7 +74,7 @@ const Login = () => {
                         <Alert color="danger">{errorMsg}</Alert>
                       </div>
                     )}
-                    <AvForm className="form-horizontal">
+                    <AvForm className="form-horizontal" onValidSubmit={handleSubmit}>
                       <div className="mb-3">
                         <AvField
                           name="email"
@@ -126,10 +130,9 @@ const Login = () => {
                       <div className="mt-3 text-end">
                         <button
                           className="btn btn-primary w-sm waves-effect waves-light w-100 py-2"
-                          type="button"
-                          onClick={() => setSelect2fa(true)}
+                          type="submit"
                         >
-                          {!isLoading ? <Spinner size="sm" /> : 'Log In'}
+                          {isLoading ? <Spinner size="sm" /> : 'Log In'}
                         </button>
                       </div>
                     </AvForm>

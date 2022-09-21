@@ -34,6 +34,7 @@ function App() {
 
   useEffect(() => {
     if (tokenPresent) {
+      localStorage.setItem('authToken',tokenPresent)
       // dispatch(getProfile());
       // dispatch(getAllUser());
     }

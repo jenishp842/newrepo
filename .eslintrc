@@ -11,8 +11,9 @@
 		"jest": true
 	},
 	"rules": {
-		"max-len": ["error", { "code": 100 }],
+		"max-len": ["error", { "code": 200 }],
 		"prefer-promise-reject-errors": ["off"],
+		"jsx-a11y/anchor-is-valid":["off"],
 		"react/jsx-filename-extension": ["off"],
 		"react/prop-types": 0,
 		"no-return-assign": ["off"],
@@ -32,8 +33,10 @@
 				"aspects": ["invalidHref", "preferButton"]
 			}
 		],
+		"import/no-cycle": "off",
 		"no-underscore-dangle": ["error", { "allow": ["_id"] }],
 		"func-names": ["error", "never"],
 		"no-nested-ternary": ["off"]
-	}
+	},
+	"settings": { "import/resolver": { "node": { "paths": ["src"] } } }
 }
