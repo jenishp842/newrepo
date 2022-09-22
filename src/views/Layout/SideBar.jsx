@@ -1,75 +1,10 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import mogulLogo from 'assets/images/mogullogo.png';
+import { dataItems } from 'statics/sidebardata';
 import './layout.css';
 
-const dataItems = [
-  {
-    name: 'Dashboard',
-    link: '/dashboard',
-    logo: 'uil-home-alt me-2',
-  },
-  {
-    name: 'Admins',
-    link: '/admins',
-    logo: 'uil-user-circle me-2',
-  },
-  {
-    name: 'Users',
-    link: '/user',
-    logo: 'uil-user me-2',
-  },
-  {
-    name: 'Properties',
-    link: '/property',
-    logo: 'uil-home me-2',
-  },
-  {
-    name: 'Governance',
-    link: '/governance',
-    logo: 'uil-building me-2',
-  },
-  {
-    name: 'Contracts',
-    link: '/contracts',
-    logo: ' uil-arrows-v me-2',
-  },
-  {
-    name: 'My wallet',
-    logo: 'uil uil-wallet font-size-18 align-middle me-2 text-muted',
-    nestedtab: [
-      {
-        name: 'Mogul Wallet',
-        link: '/my-wallet/mogul',
-        logo: 'uil uil-wallet font-size-18 align-middle me-2 text-muted',
-      },
-      {
-        name: 'Exchange Wallet',
-        link: '/my-wallet/exchange',
-        logo: 'uil uil-wallet font-size-18 align-middle me-2 text-muted',
-      },
-    ],
-  },
-  {
-    name: 'Cashflow',
-    link: '/cashflow',
-    logo: 'uil-money-bill me-2',
-  },
-  {
-    name: 'Announcement',
-    link: '/announcement',
-    logo: ' uil-list-ul me-2',
-  },
-  {
-    name: 'Account Details',
-    link: '/addbankaccount',
-    logo: 'uil-money-bill me-2',
-  },
-  {
-    name: 'Logout',
-    logo:'uil-sign-out-alt me-2'
-  },
-];
+
 
 function Sidebar({ isMenuOpened }) {
   const { pathname } = window.location;
@@ -78,7 +13,7 @@ function Sidebar({ isMenuOpened }) {
   return (
     <>
       <nav className={isMenuOpened ? '' : 'nav_show'}>
-        <div className="d-flex side_bar_top" style={{ background: '#fff' }}>
+        <div className="d-flex side_bar_top">
           <div className="navbar-brand-box">
             <NavLink to="/" className="logo logo-dark">
               <span className="logo-sm">
@@ -128,7 +63,6 @@ function Sidebar({ isMenuOpened }) {
                   // openLeftMenuCallBack();
                 }}
                 key={item.name}
-                style={{ cursor: 'pointer' }}
               >
                 {item.nestedtab ? (
                   <a>
@@ -146,7 +80,7 @@ function Sidebar({ isMenuOpened }) {
                     onClick={() => {
                       // openLeftMenuCallBack();
                     }}
-                    style={{ color: pathname === item.link ? 'rgb(11 23 248)' : 'black' }}
+                    className={pathname === item.link ? 'color-rgb' : 'color-black'}
                   >
                     <i className={item.logo} />
                     {item.name}
@@ -159,25 +93,24 @@ function Sidebar({ isMenuOpened }) {
                       className={
                         isMenuOpened
                           ? pathname === nest.link
-                            ? 'sidebar-nav-item nonActive'
-                            : 'sidebar-nav-item nonActive'
+                            ? 'sidebar-nav-item nonActive nested-item'
+                            : 'sidebar-nav-item nonActive nested-item'
                           : pathname === nest.link
-                          ? 'activeitem'
-                          : ''
+                          ? 'activeitem nested-item'
+                          : 'nested-item'
                       }
                       onClick={() => {
                         history.push(nest.link);
                         // openLeftMenuCallBack();
                       }}
                       key={nest.name}
-                      style={{ cursor: 'pointer', backgroundColor: '#d3d3d36e', border: 'none' }}
                     >
                       <Link
                         to={nest.link}
                         onClick={() => {
                           // openLeftMenuCallBack();
                         }}
-                        style={{ color: pathname === nest.link ? '#2b32b2' : 'black' }}
+                        className={pathname === nest.link ? 'color-rgb' : 'color-black'}
                       >
                         <i className={nest.logo} />
                         {nest.name}

@@ -1,4 +1,3 @@
-/* eslint-disable no-lonely-if */
 import { put } from "redux-saga/effects";
 import axiosMain from "../http/axios/axios_main";
 
@@ -60,20 +59,16 @@ export default function* errorHandler({
         } else {
           yield put(failHandler(response.data.msg));
         }
-      } else {
-        if (failHandlerType === "CUSTOM") {
+      } else if (failHandlerType === "CUSTOM") {
           yield failHandler("Server error! Please try again.");
         } else {
           yield put(failHandler("Server error! Please try again."));
         }
-      }
-    } else {
-      if (failHandlerType === "CUSTOM") {
+    } else if (failHandlerType === "CUSTOM") {
         yield failHandler("Something went wrong! Please try again.");
       } else {
         yield put(failHandler("Something went wrong! Please try again."));
       }
-    }
   } catch (error) {
     if (
       error !== undefined &&
@@ -102,19 +97,15 @@ export default function* errorHandler({
         } else {
           yield put(failHandler(error.response.data.msg));
         }
-      } else {
-        if (failHandlerType === "CUSTOM") {
+      } else if (failHandlerType === "CUSTOM") {
           yield failHandler("Server error! Please try again.");
         } else {
           yield put(failHandler("Server error! Please try again."));
         }
-      }
-    } else {
-      if (failHandlerType === "CUSTOM") {
+    } else if (failHandlerType === "CUSTOM") {
         yield failHandler("Something went wrong! Please try again.");
       } else {
         yield put(failHandler("Something went wrong! Please try again."));
       }
-    }
   }
 }
