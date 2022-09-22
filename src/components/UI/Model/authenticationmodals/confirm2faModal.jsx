@@ -1,8 +1,3 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable max-len */
-/* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button, Input, Label, List } from 'reactstrap';
@@ -11,11 +6,13 @@ import './authenticationModal.css';
 
 const Confirm2faModal = ({ isOpen }) => {
   const [copied, setCopied] = useState(false);
-  const dispatch = useDispatch()
+  const [checked, setChecked] = useState(false);
+  const dispatch = useDispatch();
   const copyToCLipBoard = value => {
     try {
       navigator.clipboard.writeText(value);
       setCopied(true);
+      setChecked(true)
       setTimeout(() => setCopied(false), 1200);
     } catch (err) {
       console.log(err);
@@ -23,7 +20,10 @@ const Confirm2faModal = ({ isOpen }) => {
   };
 
   const handleContinue = () => {
-    dispatch(otpVerify())
+    dispatch(otpVerify());
+  };
+  const handleChange = e => {
+    setChecked(e.target.checked);
   };
   return (
     <>
@@ -47,7 +47,7 @@ const Confirm2faModal = ({ isOpen }) => {
               <li>You will only be able to recover your account through this code.</li>
             </List>
             <div>
-              <Input type="checkbox" />
+              <Input type="checkbox" checked={checked} onChange={handleChange} />
               <Label className="ml-1" check>
                 Yes, I have copied the code
               </Label>
@@ -55,7 +55,7 @@ const Confirm2faModal = ({ isOpen }) => {
           </div>
         </ModalBody>
         <ModalFooter className="footer2famethod">
-          <Button color="primary" className="w-50" onClick={handleContinue}>
+          <Button color="primary" className="w-50" onClick={handleContinue} disabled={!checked}>
             Done
           </Button>
         </ModalFooter>

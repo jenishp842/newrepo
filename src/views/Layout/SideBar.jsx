@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useState } from 'react';
 import { Link, NavLink, useHistory } from 'react-router-dom';
 import mogulLogo from 'assets/images/mogullogo.png';
@@ -117,7 +116,6 @@ function Sidebar({ isMenuOpened }) {
                   if (item.nestedtab) {
                     if (nestedIndex === index) setNestedIndex(0);
                     else setNestedIndex(index);
-                    return;
                   } else {
                     if (item.name === 'Logout') {
                       localStorage.removeItem('authToken');

@@ -6,7 +6,9 @@
 // authentication
 
 .authentication-bg{
-    background-color: $auth-bg;
+    // background-color: $auth-bg;
+    background-image: url('../../../../assets/images/Background.jpg');
+    background-size: cover;
     .auth-logo{
         .logo{
             margin: 0px auto;

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Row, Col, CardBody, Card, Container, Alert, Spinner } from 'reactstrap';

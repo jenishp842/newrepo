@@ -1,17 +1,12 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Col, Label, Form, Input, Modal } from 'reactstrap';
 // import * as actions from '../../../store/actions';
 
 import './authenticationModal.css';
 
-const ForgotPasswordModal = ({ open, close, success }) => {
+const ForgotPasswordModal = ({ open, close }) => {
   const [error, setError] = useState('');
   const [values, setValues] = useState('');
-  const dispatch = useDispatch();
 
   const handleChange = event => {
     setValues(event.target.value);

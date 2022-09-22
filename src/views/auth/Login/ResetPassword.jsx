@@ -91,7 +91,7 @@ const ResetPassword = () => {
                     <p>
                       1. At least 12 characters with atleast 1 uppercase and 1 lowercase letters.
                     </p>
-                    <p>2. A mixter of letters and Numbers.</p>
+                    <p>2. A mixture of letters and Numbers.</p>
                     <p>3.Inclusion of at least one special character</p>
                     <p>4. Change password in every 90 Days to increase security.</p>
                   </div>
