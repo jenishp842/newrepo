@@ -1,16 +1,12 @@
-/* eslint-disable no-unused-vars */
 import { lazy, Suspense, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import SweetAlert from 'react-bootstrap-sweetalert';
+// import SweetAlert from 'react-bootstrap-sweetalert';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 // import { ToastContainer } from 'react-toastify';
 import { authenticationValidator } from './store/actions';
 import { Spinner } from './components';
 import { guestRoutes } from './routes';
-// import { requestForToken } from './fireBase';
-import * as actions from './store/actions';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Import scss
@@ -23,7 +19,6 @@ import './app.css';
 function App() {
   const tokenPresent = !!useSelector(state => state.auth.authToken);
   const tokenExpire = !!useSelector(state => state.auth.isExpire);
-  const { show, title } = useSelector(state => state.modal);
   const pathname = window.location.pathname.split('/')[1];
 
   const dispatch = useDispatch();
@@ -34,6 +29,7 @@ function App() {
 
   useEffect(() => {
     if (tokenPresent) {
+      localStorage.setItem('authToken',tokenPresent)
       // dispatch(getProfile());
       // dispatch(getAllUser());
     }

@@ -22,10 +22,15 @@ export const guestRoutes = [
 ];
 
 export const userRoutes = [
-  // {
-  //   path: '/dashboard',
-  //   name: 'Dashboard',
-  //   exact: true,
-  //   component: React.lazy(() => import('../../views/user/Dashboard/Dashboard')),
-  // },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    exact: true,
+    component: React.lazy(() => import('../../views/user/Dashboard/Dashboard')),
+  },
+  {
+    redirectRoute: true,
+    name: 'dashboardRedirect',
+    path: '/dashboard',
+  },
 ];

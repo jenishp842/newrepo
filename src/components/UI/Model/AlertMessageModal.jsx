@@ -1,9 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-nested-ternary */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { hideModal } from '../../../store/actions';
+import { hideModal } from 'store/actions';
 
 // eslint-disable-next-line no-unused-vars
 const AlertMessageModal = props => {

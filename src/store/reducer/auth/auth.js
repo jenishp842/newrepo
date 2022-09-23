@@ -12,7 +12,7 @@ export const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case actionLabels.LOGIN_START:
-      return { ...state, isLoading: true };
+      return { ...state, isLoading: true, isLogin: false };
     case actionLabels.LOGIN_SUCCESS: {
       return {
         ...state,
@@ -26,6 +26,12 @@ export default (state = initialState, { type, payload }) => {
     }
     case actionLabels.LOGIN_FAIL: {
       return { ...state, isLoading: false, errorMsg: payload };
+    }
+    case actionLabels.CLEAR_AUTH: {
+      return { ...state, isLogin: false, errorMsg: '' };
+    }
+    case actionLabels.OTP_VERIFY_SUCCESS: {
+      return { ...state, authToken: 'dwhejbhrbjhfrbhjrf' };
     }
     default:
       return state;

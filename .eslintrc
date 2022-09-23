@@ -11,9 +11,13 @@
 		"jest": true
 	},
 	"rules": {
-		"max-len": ["error", { "code": 100 }],
+		"max-len": ["error", { "code": 50000 }],
 		"prefer-promise-reject-errors": ["off"],
+		"jsx-a11y/anchor-is-valid":["off"],
 		"react/jsx-filename-extension": ["off"],
+		"import/prefer-default-export":["off"],
+		"jsx-a11y/no-noninteractive-element-interactions":["off"],
+		"jsx-a11y/interactive-supports-focus":["off"],
 		"react/prop-types": 0,
 		"no-return-assign": ["off"],
 		"react/jsx-props-no-spreading": ["off"],
@@ -22,18 +26,21 @@
 		"react/destructuring-assignment": ["off"],
 		"jsx-a11y/label-has-associated-control": "off",
 		"jsx-a11y/click-events-have-key-events": ["off"],
-		"jsx-a11y/no-static-element-interactions":["off"],		
+		"jsx-a11y/no-static-element-interactions":["off"],	
+		"jsx-a11y/control-has-associated-label":["off"]	,
 		"global-require": 0,
-		"jsx-a11y/anchor-is-valid": [
-			"error",
-			{
-				"components": ["Link"],
-				"specialLink": ["hrefLeft", "hrefRight"],
-				"aspects": ["invalidHref", "preferButton"]
-			}
-		],
+		// "jsx-a11y/anchor-is-valid": [
+		// 	"error",
+		// 	{
+		// 		"components": ["Link","i"],
+		// 		"specialLink": ["hrefLeft", "hrefRight"],
+		// 		"aspects": ["invalidHref", "preferButton"]
+		// 	}
+		// ],
+		"import/no-cycle": "off",
 		"no-underscore-dangle": ["error", { "allow": ["_id"] }],
 		"func-names": ["error", "never"],
 		"no-nested-ternary": ["off"]
-	}
+	},
+	"settings": { "import/resolver": { "node": { "paths": ["src"] } } }
 }

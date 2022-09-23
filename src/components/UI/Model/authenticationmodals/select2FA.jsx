@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Modal, ModalHeader, ModalBody, Input, ModalFooter, Button } from 'reactstrap';
+import { otpVerify } from 'store/actions';
 import './authenticationModal.css';
 
 const Select2faModal = ({ isOpen, onClose, next }) => {
+  const dispatch = useDispatch()
   const [method, setMethod] = useState('GA');
   const toggle = () => {
     onClose(prev=>!prev);
@@ -10,6 +13,7 @@ const Select2faModal = ({ isOpen, onClose, next }) => {
   const onContinue = () => {
      toggle()
     if(method==='GA') next(true);
+    else dispatch(otpVerify())
   };
   const handleChange = e => {
     setMethod(e.target.value);
@@ -45,7 +49,7 @@ const Select2faModal = ({ isOpen, onClose, next }) => {
           </div>
         </ModalBody>
         <ModalFooter className="footer2famethod">
-          <Button color="primary" onClick={onContinue}>
+          <Button className='w-50' color="primary" onClick={onContinue}>
             Continue
           </Button>
         </ModalFooter>
