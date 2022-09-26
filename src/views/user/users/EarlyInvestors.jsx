@@ -11,19 +11,15 @@ import {
 import Switch from 'react-switch';
 import moment from 'moment';
 
-
-
 import ButtonDropDown from 'components/DropDown/DropDown';
-
-import './EarlyInvestors.css';
 import { users } from 'constants/UserData/earlyInvestorsData';
 import { EarlyInvestorsColumn } from 'constants/columnUtility';
 import DatatableTables from 'components/table/Table';
 
+import './EarlyInvestors.css';
+
 function EarlyInvestors() {
   const [getEarlyAccess, setGetEarlyAccess] = useState(true);
-
-
   const handelSort = () => {
     console.log("Will be sort soon")
   };

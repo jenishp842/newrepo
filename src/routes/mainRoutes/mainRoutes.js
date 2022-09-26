@@ -29,8 +29,8 @@ export const userRoutes = [
     component: React.lazy(() => import('../../views/user/Dashboard/Dashboard')),
   },
   {
-    path: '/earlyInvestors',
-    name: 'Users Early Invester',
+    path: '/early-investors',
+    name: 'Users-early-invester',
     exact: true,
     component: React.lazy(() => import('../../views/user/users/EarlyInvestors')),
   },
@@ -41,8 +41,8 @@ export const userRoutes = [
     component: React.lazy(() => import('../../views/user/users/Investor')),
   },
   {
-    path: '/propertyManagers',
-    name: 'Users Property Manager',
+    path: '/property-managers',
+    name: 'Users-property-manager',
     exact: true,
     component: React.lazy(() => import('../../views/user/users/ProppertyManagers')),
   },

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Container } from 'reactstrap';
-import Table from 'components/Table/Table';
 import '../viewcommon.css';
-import ButtonDropDown from 'components/Dropdown/DropdownButton';
 import RenderIf from 'components/RenderIf';
 import { adminColumn } from 'constants/tableColumn';
 import Breadcrumb from 'components/BreadCrumb';
 import LogoLoader from 'components/UI/Spinner/LogoSpinner';
+import ButtonDropDown from 'components/DropDown/DropdownButton';
+import DatatableTables from 'components/table/Table';
+
 
 const AdminManagement = () => (
   <div className="page-content">
@@ -46,7 +47,7 @@ const AdminManagement = () => (
               </div>
             </div>
           </div>
-          <Table column={adminColumn} />
+          <DatatableTables column={adminColumn} />
         </div>
       </Container>
     </RenderIf>

@@ -1,16 +1,19 @@
-import DatatableTables from 'components/table/Table';
+
+import React, { useState } from 'react';import DatatableTables from 'components/table/Table';
+import { Button, Card, CardBody, Col, Container, Row } from 'reactstrap';
+
+
 import Breadcrumb from 'components/UI/Common/Breadcrumb';
 import CreatePropertyManagerModel from 'components/UI/Model/CreatePropertyManagerModel';
 import { propertyManagersColumn } from 'constants/columnUtility';
 import { PropertyManagersData } from 'constants/UserData/propertyManagersData';
-import React, { useState } from 'react';
-import { Button, Card, CardBody, Col, Container, Row } from 'reactstrap';
 
 function ProppertyManagers() {
   const [modal, setModal] = useState(false);
 const handelSort = () => {
   console.log("Will be sort soon")
 };
+
   return (
     <div className="page-content">
       <Container fluid>

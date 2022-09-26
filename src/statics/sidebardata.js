@@ -15,7 +15,7 @@ export const dataItems = [
     nestedtab: [
       {
         name: 'Early Investors',
-        link: '/earlyInvestors',
+        link: '/early-investors',
       },
       {
         name: 'Investors',
@@ -23,7 +23,7 @@ export const dataItems = [
       },
       {
         name: 'Property Managers',
-        link: '/propertyManagers',
+        link: '/property-managers',
       },
     ],
   },
