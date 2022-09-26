@@ -6,7 +6,7 @@ export const dataItems = [
   },
   {
     name: 'Admins',
-    link: '/admins',
+    link: '/admin-management',
     logo: 'uil-user-circle me-2',
   },
   {
