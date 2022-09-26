@@ -47,6 +47,12 @@ export const userRoutes = [
     component: React.lazy(() => import('../../views/user/users/ProppertyManagers')),
   },
   {
+    path: '/admin-management',
+    name: 'Admin-management',
+    exact: true,
+    component: React.lazy(() => import('views/adminmanagment/AdminManagment')),
+  },
+  {
     redirectRoute: true,
     name: 'dashboardRedirect',
     path: '/dashboard',
