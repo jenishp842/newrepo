@@ -11,8 +11,21 @@ export const dataItems = [
   },
   {
     name: 'Users',
-    link: '/user',
     logo: 'uil-user me-2',
+    nestedtab: [
+      {
+        name: 'Early Investors',
+        link: '/earlyInvestors',
+      },
+      {
+        name: 'Investors',
+        link: '/investors',
+      },
+      {
+        name: 'Property Managers',
+        link: '/propertyManagers',
+      },
+    ],
   },
   {
     name: 'Properties',

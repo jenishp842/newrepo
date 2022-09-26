@@ -14,3 +14,8 @@
 .ml-1{
     margin-left:10px
 }
+
+.dataTables_paginate{
+    display: flex;
+    justify-content: end;
+}
