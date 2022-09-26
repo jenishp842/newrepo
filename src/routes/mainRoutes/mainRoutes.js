@@ -35,6 +35,12 @@ export const userRoutes = [
     component: React.lazy(() => import('views/adminmanagment/AdminManagment')),
   },
   {
+    path: '/fiat-wallet',
+    name: 'Fiat-wallet',
+    exact: true,
+    component: React.lazy(() => import('views/wallet/FiatWallet')),
+  },
+  {
     redirectRoute: true,
     name: 'dashboardRedirect',
     path: '/dashboard',
