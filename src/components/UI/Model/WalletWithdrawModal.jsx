@@ -4,7 +4,7 @@ import { Button, Col, Modal } from 'reactstrap';
 import './Model.scss';
 // import toaster from '../../../hoc/SetTokenHeader/Toaster/Toaster';
 
-const WalletWithdrawModal = props => {
+const WalletWithdrawModal = ({ isOpen, close }) => {
   const handleSubmit = () => {
     // toaster(
     //   <div>
@@ -16,12 +16,12 @@ const WalletWithdrawModal = props => {
     //     className: 'toaster-success',
     //   },
     // );
-    props.close();
+    close();
   };
 
   return (
     <>
-      <Modal centered isOpen={props.isOpen} className="payment_modals ">
+      <Modal centered isOpen={isOpen} className="payment_modals ">
         <div className="modal-header justify-content-center pb-0">
           <h5 className="modal-title mt-0 fw-bold " id="myModalLabel">
             Withdraw
@@ -30,7 +30,7 @@ const WalletWithdrawModal = props => {
           <button
             type="button"
             onClick={() => {
-              props.close();
+              close();
             }}
             className="close"
             data-dismiss="modal"

@@ -5,7 +5,7 @@ import { Button, Col, Modal, Row } from 'reactstrap';
 
 import './Model.scss';
 
-const WalletDepositModal = props => {
+const WalletDepositModal = ({ isOpen, close, modal }) => {
   const [isActive, setIsActive] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const handleChange = e => {
@@ -14,7 +14,7 @@ const WalletDepositModal = props => {
 
   return (
     <>
-      <Modal centered isOpen={props.isOpen} className="payment_modals">
+      <Modal centered isOpen={isOpen} className="payment_modals">
         <div className="modal-header justify-content-center pb-0">
           <h5 className="modal-title mt-0 fw-bold" id="myModalLabel">
             Deposit
@@ -23,7 +23,7 @@ const WalletDepositModal = props => {
           <button
             type="button"
             onClick={() => {
-              props.close();
+              close();
             }}
             className="close"
             data-dismiss="modal"
@@ -95,8 +95,8 @@ const WalletDepositModal = props => {
             className="btn btn-continue"
             disabled={!isActive}
             onClick={() => {
-              props.continue();
-              props.close(false);
+              modal();
+              close(false);
             }}
           >
             Continue

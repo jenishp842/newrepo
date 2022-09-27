@@ -4,7 +4,7 @@ import { Button, Modal } from 'reactstrap';
 
 import './Model.scss';
 
-const WalletDepositConfirmModal = props => {
+const WalletDepositConfirmModal = ({ isOpen, close }) => {
   const handleSubmit = () => {
     // toaster(
     //   <div>
@@ -16,12 +16,12 @@ const WalletDepositConfirmModal = props => {
     //     className: 'toaster-success',
     //   },
     // );
-    props.close();
+    close();
   };
 
   return (
     <>
-      <Modal centered isOpen={props.isOpen} className="payment_modals">
+      <Modal centered isOpen={isOpen} className="payment_modals">
         <div className="modal-header justify-content-center pb-0">
           <h5 className="modal-title mt-0 fw-bold" id="myModalLabel">
             Confirmation
@@ -30,7 +30,7 @@ const WalletDepositConfirmModal = props => {
           <button
             type="button"
             onClick={() => {
-              props.close();
+              close();
             }}
             className="close"
             data-dismiss="modal"
@@ -43,7 +43,7 @@ const WalletDepositConfirmModal = props => {
           <p>Are you sure you want to cancel the transaction?</p>
         </div>
         <div className="modal-footer justify-content-center">
-          <Button className="btn button__remove px-4 mx-1" onClick={() => props.close(false)}>
+          <Button className="btn button__remove px-4 mx-1" onClick={() => close(false)}>
             Discard
           </Button>
           <Button

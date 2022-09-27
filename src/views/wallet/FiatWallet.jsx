@@ -93,7 +93,7 @@ const WalletCard = () => {
             <WalletWithdrawModal
               isOpen={withdraw}
               close={() => setWithdraw(false)}
-              continue={() => withdrawModal()}
+              modal={() => withdrawModal()}
             />
           )}
 
@@ -101,7 +101,7 @@ const WalletCard = () => {
             <WalletDepositModal
               isOpen={deposit}
               close={() => setDeposit(false)}
-              continue={() => depositBankModal()}
+              modal={() => depositBankModal()}
             />
           )}
           {depositBank && (

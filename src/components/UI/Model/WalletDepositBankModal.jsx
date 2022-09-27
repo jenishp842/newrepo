@@ -4,9 +4,9 @@ import { Button, Col, Modal } from 'reactstrap';
 
 import './Model.scss';
 
-const WalletDepositBankModal = props => (
+const WalletDepositBankModal = ({ isOpen, close, confirm }) => (
   <>
-    <Modal centered isOpen={props.isOpen} className="payment_modals">
+    <Modal centered isOpen={isOpen} className="payment_modals">
       <div className="modal-header justify-content-center pb-0">
         <h5 className="modal-title mt-0 fw-bold" id="myModalLabel">
           Deposit
@@ -15,7 +15,7 @@ const WalletDepositBankModal = props => (
         <button
           type="button"
           onClick={() => {
-            props.close();
+            close();
           }}
           className="close"
           data-dismiss="modal"
@@ -52,8 +52,8 @@ const WalletDepositBankModal = props => (
         <Button
           className="btn btn-continue"
           onClick={() => {
-            props.confirm();
-            props.close(false);
+            confirm();
+            close(false);
           }}
         >
           Confirm Transaction
