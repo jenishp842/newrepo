@@ -77,7 +77,6 @@ const DatatableTables = ({ column, action, row, handelSort }) => {
   });
   useEffect(() => {
     if (!row) {
-      console.log('etered');
       data?.rows?.forEach((item, idx) => {
         data.rows[idx] = {
           ...item,

@@ -110,7 +110,7 @@ export const PropertyManagersData = [
     {
       _id:121000,
       company_name: "ABC",
-      emailId:"text@123.com",
+      emailId:"yash@123.com",
       registration_date:"27/02/2022",
       contact_person:"XYZ",
       status:"password sent",
