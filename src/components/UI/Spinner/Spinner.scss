@@ -1,3 +1,30 @@
+.spinner-container{
+  position: absolute;
+  left: 45%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 1000000;
+}
+
+.spinner-card {
+  height: 50px;
+  position: relative;
+}
+.spinner-body {
+  position: absolute;
+}
+.spin-content{
+  height: 100px !important;
+  width: 100px !important;
+  color: aqua;
+}
+.mogulIn{
+  height: 50px;
+  width: 50px;
+  left: 24px;
+  top: 40%;
+
+}
 .loader,
 .loader:before,
 .loader:after {

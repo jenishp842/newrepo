@@ -20,6 +20,7 @@
 		"jsx-a11y/interactive-supports-focus":["off"],
 		"react/prop-types": 0,
 		"no-return-assign": ["off"],
+		"no-useless-escape":["off"],
 		"react/jsx-props-no-spreading": ["off"],
 		"react/jsx-curly-newline": ["off"],
 		"react/react-in-jsx-scope": ["off"],
