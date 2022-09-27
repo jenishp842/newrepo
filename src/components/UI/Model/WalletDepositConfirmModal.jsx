@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Modal } from 'reactstrap';
-// import toaster from '../../../../hoc/Toaster/Toaster';
+// import toaster from '../../../hoc/SetTokenHeader/Toaster/Toaster';
 
 import './Model.scss';
 
@@ -22,7 +22,7 @@ const WalletDepositConfirmModal = props => {
   return (
     <>
       <Modal centered isOpen={props.isOpen} className="payment_modals">
-        <div className="modal_header justify-content-center pb-0">
+        <div className="modal-header justify-content-center pb-0">
           <h5 className="modal-title mt-0 fw-bold" id="myModalLabel">
             Confirmation
           </h5>
@@ -39,10 +39,10 @@ const WalletDepositConfirmModal = props => {
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className="modal_body text-center">
+        <div className="modal-body text-center">
           <p>Are you sure you want to cancel the transaction?</p>
         </div>
-        <div className="modal_footer justify-content-center">
+        <div className="modal-footer justify-content-center">
           <Button className="btn button__remove px-4 mx-1" onClick={() => props.close(false)}>
             Discard
           </Button>

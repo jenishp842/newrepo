@@ -27,6 +27,12 @@
     border: 1px solid #dce1e7;
     border-radius: 8px;
   }
+
+  .table-background{
+    border-radius: 5px;
+    background: #ffffff;
+    margin-top: 25px;
+  }
   
   .euro {
     background-color: #ffffff;
@@ -37,7 +43,7 @@
     align-items: center;
     display: flex;
     border: 1px solid #4b5e6e;
-    margin-top: 20px;
+   
   }
   
   .euro img {

@@ -46,6 +46,7 @@ const AdminManagement = () => (
               </div>
             </div>
           </div>
+
           <Table column={adminColumn} />
         </div>
       </Container>

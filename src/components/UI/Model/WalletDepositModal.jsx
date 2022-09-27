@@ -15,7 +15,7 @@ const WalletDepositModal = props => {
   return (
     <>
       <Modal centered isOpen={props.isOpen} className="payment_modals">
-        <div className="modal_header justify-content-center pb-0">
+        <div className="modal-header justify-content-center pb-0">
           <h5 className="modal-title mt-0 fw-bold" id="myModalLabel">
             Deposit
           </h5>
@@ -32,8 +32,8 @@ const WalletDepositModal = props => {
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className="modal_body">
-          <div className="body_text d-flex justify-content-between align-items-center">
+        <div className="modal-body">
+          <div className="body-text d-flex justify-content-between align-items-center">
             <div>
               <i className="fas fa-dollar-sign" />
               <span className="fw-bold ms-2">USD</span>
@@ -90,9 +90,9 @@ const WalletDepositModal = props => {
             </Col>
           </AvForm>
         </div>
-        <div className="modal_footer justify-content-center pt-0 ">
+        <div className="modal-footer justify-content-center pt-0 ">
           <Button
-            className="btn btn_continue"
+            className="btn btn-continue"
             disabled={!isActive}
             onClick={() => {
               props.continue();

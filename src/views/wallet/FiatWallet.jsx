@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
-import { Col, Button } from 'reactstrap';
+
+import { Container, Col, Button, TabContent, NavItem, Nav, TabPane, NavLink } from 'reactstrap';
 import SweetAlert from 'react-bootstrap-sweetalert';
-// import fiatwallet from '../../assets/images/wallet/fiatwallet.png';
+import Table from 'components/Table/Table';
+import { fiatColumn, withdrawColumn } from 'constants/tableColumn';
+import Breadcrumb from 'components/BreadCrumb';
+import classnames from 'classnames';
+import fiatwallet from '../../assets/images/fiatwallet.png';
 
 import WalletWithdrawModal from '../../components/UI/Model/WalletWithdrawModal';
 import WalletDepositModal from '../../components/UI/Model/WalletDepositModal';
@@ -10,12 +15,13 @@ import WalletDepositConfirmModal from '../../components/UI/Model/WalletDepositCo
 
 import './wallet.css';
 
-const WalletCard = ({ header, value }) => {
+const WalletCard = () => {
   const [withdraw, setWithdraw] = useState(false);
   const [depositBank, setDepositBank] = useState(false);
   const [deposit, setDeposit] = useState(false);
   const [depositConfirm, setDepositConfirm] = useState(false);
   const [isDeposit, setIsDeposit] = useState(false);
+  const [activeTabJustify2, setactiveTabJustify2] = useState('25');
 
   const withdrawModal = () => {
     setWithdraw(false);
@@ -31,10 +37,18 @@ const WalletCard = ({ header, value }) => {
   const depositSuccess = () => {
     setIsDeposit(true);
   };
+
+  function toggleCustomJustified2(tab) {
+    if (activeTabJustify2 !== tab) {
+      setactiveTabJustify2(tab);
+    }
+  }
+
   return (
     <>
       {/* <div className="border-wallet"> */}
       <div className="page-content">
+        <Breadcrumb name="Fiat Wallet" />
         <Col
           xl={12}
           md={12}
@@ -46,10 +60,12 @@ const WalletCard = ({ header, value }) => {
           <div />
           <div>
             <div className="justify-content-center euro-mobile">
-              <div className="euro">{/* <img src={fiatwallet} alt="Euro" /> */}</div>
+              <div className="euro">
+                <img src={fiatwallet} alt="Euro" />
+              </div>
               <div className="text-center euro-text">
-                <div className="header f600 font-size-14">{header}</div>
-                <div className="primary f600 font-size-24">{value}</div>
+                <div className="header f600 font-size-14">USD Available</div>
+                <div className="primary f600 font-size-24">$5,000</div>
               </div>
             </div>
           </div>
@@ -112,6 +128,44 @@ const WalletCard = ({ header, value }) => {
             />
           )}
         </Col>
+        <Container fluid>
+          <div className="table-background">
+            <Nav pills className="nav-justified bg-light p-2">
+              <NavItem className="waves-effect waves-light">
+                <NavLink
+                  className={classnames({
+                    active: activeTabJustify2 === '25',
+                  })}
+                  onClick={() => {
+                    toggleCustomJustified2('25');
+                  }}
+                >
+                  <span className="d-none d-sm-block">Deposit</span>
+                </NavLink>
+              </NavItem>
+              <NavItem className="waves-effect waves-light">
+                <NavLink
+                  className={classnames({
+                    active: activeTabJustify2 === '26',
+                  })}
+                  onClick={() => {
+                    toggleCustomJustified2('26');
+                  }}
+                >
+                  <span className="d-none d-sm-block">WithDraw</span>
+                </NavLink>
+              </NavItem>
+            </Nav>
+            <TabContent activeTab={activeTabJustify2} className="p-3 text-muted">
+              <TabPane tabId="25">
+                <Table column={fiatColumn} />
+              </TabPane>
+              <TabPane tabId="26">
+                <Table column={withdrawColumn} />
+              </TabPane>
+            </TabContent>
+          </div>
+        </Container>
       </div>
     </>
   );

@@ -37,3 +37,59 @@ export const adminColumn = [
     sort: 'disabled',
   },
 ];
+
+export const fiatColumn = [
+  {
+    label: 'Time Stamp',
+    field: 'date',
+    sort: 'asc',
+    width: 150,
+  },
+  {
+    label: 'Amount',
+    field: 'deposite',
+    sort: 'asc',
+    width: 270,
+  },
+  {
+    label: 'From',
+    field: 'Destination',
+    sort: 'disabled',
+    width: 200,
+  },
+
+  {
+    label: 'Status',
+    field: 'action',
+    sort: 'disabled',
+    width: 100,
+  },
+];
+
+export const withdrawColumn = [
+  {
+    label: 'Time Stamp',
+    field: 'date',
+    sort: 'asc',
+    width: 150,
+  },
+  {
+    label: 'Destination',
+    field: 'Destination',
+    sort: 'disabled',
+    width: 200,
+  },
+  {
+    label: 'Amount',
+    field: 'deposite',
+    sort: 'asc',
+    width: 270,
+  },
+
+  {
+    label: 'Status',
+    field: 'action',
+    sort: 'disabled',
+    width: 100,
+  },
+];

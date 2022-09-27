@@ -4,8 +4,6 @@ import { Row, Col, Progress } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './datatables.scss';
 
-
-
 const DatatableTables = ({ column, action, row, handelSort }) => {
   const [data, setData] = useState({
     columns: column,
@@ -83,11 +81,7 @@ const DatatableTables = ({ column, action, row, handelSort }) => {
           ...item,
           title: `title${idx + 1}`,
           // toggle: <ToggleSwitch />,
-          action: (action && action(idx)) || (
-            <div className="d-flex">
-              modal
-            </div>
-          ),
+          action: (action && action(idx)) || <div className="d-flex">modal</div>,
           location: `Location${idx + 1}`,
           updated: '3/21/2022 3:03:27 EST',
           number: idx + 1,
@@ -110,6 +104,7 @@ const DatatableTables = ({ column, action, row, handelSort }) => {
           category: 'Commercial',
           platfee: 'Paid',
           propdoc: 'Uploaded',
+          Destination: 'Bank Account Name',
         };
       });
       setData({ ...data });
@@ -119,7 +114,7 @@ const DatatableTables = ({ column, action, row, handelSort }) => {
       const skelData = {};
       const rowloading = [];
       column.forEach(item => {
-        skelData[item.field] = <div className='skel'/>;
+        skelData[item.field] = <div className="skel" />;
       });
       for (let i = 0; i < 4; ) {
         rowloading.push(skelData);
@@ -130,22 +125,22 @@ const DatatableTables = ({ column, action, row, handelSort }) => {
     }
     setData(prev => ({ ...prev, rows: row }));
   }, [JSON.stringify(row)]);
-  
+
   return (
     <>
-          <Row className='m-auto p-2'>
-            <Col className="col-12">
-              <MDBDataTable
-                responsive
-                striped
-                bordered
-                data={data}
-                displayEntries={false}
-                onSort={handelSort}
-                noRecordsFoundLabel="No record found"
-              />
-            </Col>
-          </Row>
+      <Row className="m-auto p-2">
+        <Col className="col-12">
+          <MDBDataTable
+            responsive
+            striped
+            bordered
+            data={data}
+            displayEntries={false}
+            onSort={handelSort}
+            noRecordsFoundLabel="No record found"
+          />
+        </Col>
+      </Row>
     </>
   );
 };

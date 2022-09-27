@@ -39,8 +39,8 @@ const WalletWithdrawModal = props => {
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className="modal_body">
-          <div className="body_text mb-3 d-flex justify-content-between align-items-center">
+        <div className="modal-body">
+          <div className="body-text mb-3 d-flex justify-content-between align-items-center">
             <div>
               <i className="fas fa-dollar-sign" />
               <span className="fw-bold ms-2">USD</span>
@@ -68,7 +68,7 @@ const WalletWithdrawModal = props => {
               <AvField type="select" name="userType" value="EnverX Wallet" label="To">
                 <option>....xxxxx878</option>
               </AvField>
-              <i className="fas fa-angle-down drop_down" />
+              <i className="fas fa-angle-down drop-down" />
             </Col>
             <Col sm="12" className="mb-1 position-relative">
               <AvField name="country" label={<h6>Amount</h6>} type="text" placeholder="0.00" />
@@ -85,9 +85,9 @@ const WalletWithdrawModal = props => {
             <p className="small">$0.00</p>
           </div>
         </div>
-        <div className="modal_footer justify-content-center pt-0">
+        <div className="modal-footer justify-content-center pt-0">
           <Button
-            className="btn btn_continue"
+            className="btn btn-continue"
             onClick={() => {
               handleSubmit();
             }}
