@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, CardBody, Col, Container, Row } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 import DatatableTables from 'components/table/Table';
 import Breadcrumb from 'components/UI/Common/Breadcrumb';
@@ -8,7 +9,6 @@ import { propertyManagersColumn } from 'constants/columnUtility';
 import { PropertyManagersData } from 'constants/UserData/propertyManagersData';
 import DeleteUserModel from 'components/UI/Model/DeleteUserModel';
 import BlockUserModel from 'components/UI/Model/BlockUserModel';
-import { Link } from 'react-router-dom';
 import WhiteListUserModel from 'components/UI/Model/WhiteListUserModel';
 
 const ProppertyManagers = () => {
