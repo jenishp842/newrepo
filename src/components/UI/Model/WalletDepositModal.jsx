@@ -7,9 +7,16 @@ import './Model.scss';
 
 const WalletDepositModal = ({ isOpen, close, modal }) => {
   const [isActive, setIsActive] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const handleChange = e => {
+
+  const handleChange = () => {
     setIsActive(true);
+  };
+  const onClickCloseHandler = () => {
+    close();
+  };
+  const onClickHandler = () => {
+    modal();
+    close(false);
   };
 
   return (
@@ -22,9 +29,7 @@ const WalletDepositModal = ({ isOpen, close, modal }) => {
 
           <button
             type="button"
-            onClick={() => {
-              close();
-            }}
+            onClick={onClickCloseHandler}
             className="close"
             data-dismiss="modal"
             aria-label="Close"
@@ -91,14 +96,7 @@ const WalletDepositModal = ({ isOpen, close, modal }) => {
           </AvForm>
         </div>
         <div className="modal-footer justify-content-center pt-0 ">
-          <Button
-            className="btn btn-continue"
-            disabled={!isActive}
-            onClick={() => {
-              modal();
-              close(false);
-            }}
-          >
+          <Button className="btn btn-continue" disabled={!isActive} onClick={onClickHandler}>
             Continue
           </Button>
         </div>

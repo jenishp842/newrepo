@@ -1,6 +1,7 @@
 import { AvField, AvForm } from 'availity-reactstrap-validation';
 import React from 'react';
 import { Button, Col, Modal } from 'reactstrap';
+
 import './Model.scss';
 // import toaster from '../../../hoc/SetTokenHeader/Toaster/Toaster';
 
@@ -19,6 +20,10 @@ const WalletWithdrawModal = ({ isOpen, close }) => {
     close();
   };
 
+  const onClickCloseHandler = () => {
+    close();
+  };
+
   return (
     <>
       <Modal centered isOpen={isOpen} className="payment_modals ">
@@ -29,9 +34,7 @@ const WalletWithdrawModal = ({ isOpen, close }) => {
 
           <button
             type="button"
-            onClick={() => {
-              close();
-            }}
+            onClick={onClickCloseHandler}
             className="close"
             data-dismiss="modal"
             aria-label="Close"

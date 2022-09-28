@@ -19,6 +19,10 @@ const WalletDepositConfirmModal = ({ isOpen, close }) => {
     close();
   };
 
+  const onClickCloseHandler = () => {
+    close();
+  };
+
   return (
     <>
       <Modal centered isOpen={isOpen} className="payment_modals">
@@ -29,9 +33,7 @@ const WalletDepositConfirmModal = ({ isOpen, close }) => {
 
           <button
             type="button"
-            onClick={() => {
-              close();
-            }}
+            onClick={onClickCloseHandler}
             className="close"
             data-dismiss="modal"
             aria-label="Close"

@@ -12,16 +12,7 @@
     padding-right: 0rem;
   }
   
-  @media (max-width: 768px) {
-    .wallet-card {
-      padding: 0rem;
-    }
-    @media (max-width: 600px) {
-      .wallet-card {
-        display: block;
-      }
-    }
-  }
+ 
   
   .border-wallet {
     border: 1px solid #dce1e7;
@@ -92,6 +83,14 @@
     .dflexSmall {
       display: flex;
     }
+
+    @media (max-width: 768px) {
+      .wallet-card {
+        padding: 0rem;
+      }
+      
+    }
+    
     @media (max-width: 600px) {
       .euro-mobile {
         display: flex;
@@ -121,6 +120,9 @@
       }
       .sub-header-wallet {
         font-size: 14px;
+      }
+      .wallet-card {
+        display: block;
       }
     }
   }
