@@ -15,7 +15,7 @@
     margin-left:10px
 }
 
-.dataTables_paginate{
+.pagination{
     display: flex;
     justify-content: end;
 }

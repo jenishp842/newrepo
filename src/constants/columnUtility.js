@@ -53,8 +53,47 @@ export const EarlyInvestorsColumn = [
     },
     {
         label: 'Actions',
-        field: 'actions',
+        field: 'action',
         sort: 'disabled',
         width: 100,
       },
   ];
+
+  export const currentManagedPropertyColumn = [
+    {
+      label: 'Sr.no',
+      field: 'srno',
+      sort: 'asc',
+      width: 200,
+    },
+    {
+      label: 'Property name',
+      field: 'propertyName',
+      sort: 'asc',
+      width: 200,
+    },
+    {
+      label: 'State',
+      field: 'state',
+      sort: 'asc',
+      width: 200,
+    },
+    {
+      label: 'Country',
+      field: 'country',
+      sort: 'disabled',
+      width: 200,
+    },
+    {
+        label: 'Start Date',
+        field: 'startDate',
+        sort: 'disabled',
+        width: 200,
+      },
+      {
+        label: 'Property Fee',
+        field: 'propertyFee',
+        sort: 'disabled',
+        width: 200,
+      },
+  ]

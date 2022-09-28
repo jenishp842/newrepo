@@ -3,7 +3,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button} from 'reactstrap';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 
 
-function CreatePropertyManagerModel({ isOpen, onClose}) {
+const CreatePropertyManagerModel = ({ isOpen, onClose}) => {
   
   
   const toggle = () => {

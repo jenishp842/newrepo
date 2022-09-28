@@ -1,5 +1,5 @@
 // import Table from 'components/UI/tables/Table';
-import React, { useState } from 'react';
+import React, { useState,useEffect} from 'react';
 import {
   Button,
   Card,
@@ -17,13 +17,48 @@ import { EarlyInvestorsColumn } from 'constants/columnUtility';
 import DatatableTables from 'components/table/Table';
 
 import './EarlyInvestors.css';
+import DeleteUserModel from 'components/UI/Model/DeleteUserModel';
 
-function EarlyInvestors() {
+
+
+const EarlyInvestors = () => {
   const [getEarlyAccess, setGetEarlyAccess] = useState(true);
   const handelSort = () => {
-    console.log("Will be sort soon")
   };
-  
+  const handleChange = () => { 
+  }
+  const [usersData, setUserData] = useState(users);
+  const [modal, setModal] = useState(false);
+
+  const DropDownButtonData = [
+    { 'Last 7 days': moment().subtract(7, 'd').format('MM/DD/YYYY') },
+    {
+      'Last 15days': moment().subtract(15, 'd').format('MM/DD/YYYY'),
+    },
+    {
+      'Last 1month': moment()
+        .subtract(1, 'month')
+        .format('MM/DD/YYYY'),
+    },
+    {
+      'Last 3month': moment()
+        .subtract(3, 'month')
+        .format('MM/DD/YYYY'),
+    },
+  ];
+  useEffect( () => {
+    const sdetail = users.map(item => ({
+      email: item.email,
+      registration_date: new Date(item.createdAt).toLocaleString(),
+      status:item.status,
+      action: (
+        <div className="d-flex justify-content-center" key={item._id}>
+            <i className="fa fa-trash" role="button" onClick={() => setModal(true)}/>
+        </div>
+      ),
+    }));
+    setUserData(sdetail)
+  },[users])
   return (
     <div className="page-content">
       <Container fluid>
@@ -36,22 +71,7 @@ function EarlyInvestors() {
                     <div className="d-flex align-items-center">
                       <ButtonDropDown 
                       title= 'Registration'
-                      options={[
-                        { 'Last 7 days': moment().subtract(7, 'd').format('MM/DD/YYYY') },
-                        {
-                          'Last 15days': moment().subtract(15, 'd').format('MM/DD/YYYY'),
-                        },
-                        {
-                          'Last 1month': moment()
-                            .subtract(1, 'month')
-                            .format('MM/DD/YYYY'),
-                        },
-                        {
-                          'Last 3month': moment()
-                            .subtract(3, 'month')
-                            .format('MM/DD/YYYY'),
-                        },
-                      ]}
+                      options={DropDownButtonData}
                       name="startDate"/>
                       <div className="d-flex ms-2">
                         <span>Get Early Access</span>
@@ -76,7 +96,7 @@ function EarlyInvestors() {
                             type="text"
                             placeholder="Search Users"
                             // value={query}
-                            onChange={() => console.log('HOLA')}
+                            onChange={handleChange}
                           />
                           <i className="mdi mdi-magnify search-icon" />
                         </div>
@@ -84,8 +104,9 @@ function EarlyInvestors() {
                     </div>
                   </div>
                 </Row>
+                {modal && <DeleteUserModel   isOpen={modal} onClose={setModal} />}
                 <DatatableTables column={EarlyInvestorsColumn}
-                    row={users}
+                    row={usersData}
                     hidePaging
                     handelSort={handelSort}/>
               </CardBody>

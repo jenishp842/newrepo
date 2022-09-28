@@ -6,7 +6,7 @@ export const PropertyManagersData = [
       registration_date:"27/02/2022",
       contact_person:"XYZ",
       status:"password sent",
-      action:"",
+      action:"MODELS",
     },
     {
       _id:12320,

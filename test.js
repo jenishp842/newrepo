@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 const data = [
   { name: 'a', amount: 1 },
   { name: 'a', amount: 2 },

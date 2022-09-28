@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-function SetTokenInterval(Component, axios) {
-  function WrappedComponent(props) {
+const SetTokenInterval = (Component, axios) => {
+  const WrappedComponent = (props) => {
     const [interceptor] = useState(
       axios.interceptors.request.use(config => {
         const configObject = config;
