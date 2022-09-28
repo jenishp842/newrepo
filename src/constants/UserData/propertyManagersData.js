@@ -6,7 +6,8 @@ export const PropertyManagersData = [
       registration_date:"27/02/2022",
       contact_person:"XYZ",
       status:"password sent",
-      action:"MODELS",
+      action:"",
+      isBlackListed:true,
     },
     {
       _id:12320,
@@ -16,6 +17,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:true,
     },
     {
       _id:12322,
@@ -25,6 +27,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:false,
     },
     {
       _id:1232,
@@ -34,6 +37,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:false,
     },
     {
       _id:121,
@@ -43,6 +47,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:true,
     },
     {
       _id:1218,
@@ -52,6 +57,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:true,
     },
     {
       _id:12178,
@@ -61,6 +67,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:false,
     },
     {
       _id:12175,
@@ -70,6 +77,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:true,
     },
     {
       _id:12165,
@@ -79,6 +87,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:false,
     },
     {
       _id:12112,
@@ -88,6 +97,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:false,
     },
     {
       _id:121745,
@@ -97,6 +107,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:false,
     },
     {
       _id:121964,
@@ -106,6 +117,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:true,
     },
     {
       _id:121000,
@@ -115,6 +127,7 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:true,
     },
     {
       _id:121632,
@@ -124,5 +137,6 @@ export const PropertyManagersData = [
       contact_person:"XYZ",
       status:"password sent",
       action:"",
+      isBlackListed:true,
     }
     ];

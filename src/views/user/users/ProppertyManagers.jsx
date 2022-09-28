@@ -9,6 +9,7 @@ import { PropertyManagersData } from 'constants/UserData/propertyManagersData';
 import DeleteUserModel from 'components/UI/Model/DeleteUserModel';
 import BlockUserModel from 'components/UI/Model/BlockUserModel';
 import { Link } from 'react-router-dom';
+import WhiteListUserModel from 'components/UI/Model/WhiteListUserModel';
 
 const ProppertyManagers = () => {
   const [addNewModal, setaddNewModal] = useState(false);
@@ -32,7 +33,7 @@ const ProppertyManagers = () => {
             onClick={() => localStorage.setItem('userid', item._id)}>
             <i className="fa fa-eye" role="button" />
           </Link>
-          <i className="fa fa-circle" role="button" onClick={() => setBlockModal(true)} />
+          {item.isBlackListed ? <WhiteListUserModel /> : <BlockUserModel />}
           <i className="fa fa-trash" role="button" onClick={() => setDeleteModal(true)} />
         </div>
       ),

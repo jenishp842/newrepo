@@ -1,21 +1,30 @@
 import { AvField, AvForm } from 'availity-reactstrap-validation';
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button} from 'reactstrap';
 
 
-const BlockUserModel = ({ isOpen, onClose}) => {
-  
-  
-  const toggle = () => {
-    onClose(prev=>!prev);
-  };
-  
+const BlockUserModel = () => {
+  const [modalBlackList, setBlackList] = useState(false);
+  const togBlackList = () => {
+    setBlackList(!modalBlackList);
+  }
   
   return (
-    
     <>
-      <Modal isOpen={isOpen} toggle={toggle} centered>
-        <ModalHeader className="mx-auto" toggle={toggle}>Block User</ModalHeader>
+    <button
+          type="button"
+          onClick={() => {
+            togBlackList();
+          }}
+          className=""
+          style={{ border: 'none', background: 'none' }}
+          data-toggle="modal"
+          data-target="#myModal"
+        >
+          <i className="fas fa-user-slash mx-1"/>
+        </button>
+      <Modal isOpen={modalBlackList} toggle={togBlackList} centered>
+        <ModalHeader className="mx-auto" toggle={togBlackList}>Block User</ModalHeader>
         <ModalBody>
         <AvForm className="form-horizontal" >
                       <div className="mb-3">
@@ -33,7 +42,7 @@ const BlockUserModel = ({ isOpen, onClose}) => {
         </AvForm>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary w-50 mx-auto" onClick={toggle}>
+          <Button color="primary w-50 mx-auto" onClick={togBlackList}>
             Block User
           </Button>
         </ModalFooter>
