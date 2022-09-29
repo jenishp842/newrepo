@@ -47,8 +47,8 @@ export const dataItems = [
     logo: 'uil uil-wallet font-size-18 align-middle me-2 text-muted',
     nestedtab: [
       {
-        name: 'Mogul Wallet',
-        link: '/my-wallet/mogul',
+        name: 'Fiat Wallet',
+        link: '/fiat-wallet',
         logo: 'uil uil-wallet font-size-18 align-middle me-2 text-muted',
       },
       {

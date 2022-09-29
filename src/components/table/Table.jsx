@@ -3,7 +3,7 @@ import { MDBDataTable } from 'mdbreact';
 import { Row, Col, Progress } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './datatables.scss';
-import ToggleSwitch from 'components/Switch/ToggleSwitch';
+import ToggleSwitch from 'components/Switch/ToggleSwitch'
 
 const DatatableTables = ({ column, action, row, handelSort }) => {
   const [data, setData] = useState({
@@ -105,6 +105,7 @@ const DatatableTables = ({ column, action, row, handelSort }) => {
           category: 'Commercial',
           platfee: 'Paid',
           propdoc: 'Uploaded',
+          Destination: 'Bank Account Name',
         };
       });
       setData({ ...data });

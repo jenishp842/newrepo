@@ -139,22 +139,22 @@ const CreateModal = ({ isOpen, close, model, disable }) => {
                     </option>
                   </AvField>
                 </div>
-                <div className="modal-footer">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      togCreate();
-                    }}
-                    className="btn btn-secondary waves-effect"
-                    data-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="submit" className="btn btn-primary waves-effect waves-light">
-                    Submit
-                  </button>
-                </div>
               </AvForm>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                onClick={() => {
+                  togCreate();
+                }}
+                className="btn btn-secondary waves-effect"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="submit" className="btn btn-primary waves-effect waves-light">
+                Submit
+              </button>
             </div>
           </Modal>
         </div>
