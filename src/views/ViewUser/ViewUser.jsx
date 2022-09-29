@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, Col, Container, Row } from 'reactstrap';
 
-import DatatableTables from 'components/table/Table';
+import DatatableTables from 'components/Table/Table';
 import { currentManagedPropertyColumn } from 'constants/columnUtility';
 import { currentPropertiesData } from 'constants/currentManagedPropertyData';
 

@@ -1,32 +1,21 @@
 // import Table from 'components/UI/tables/Table';
-import React, { useState,useEffect} from 'react';
-import {
-  Button,
-  Card,
-  CardBody,
-  Col,
-  Container,
-  Row,
-} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Button, Card, CardBody, Col, Container, Row } from 'reactstrap';
 import Switch from 'react-switch';
 import moment from 'moment';
 
-import ButtonDropDown from 'components/DropDown/DropDown';
+import ButtonDropDown from 'components/Dropdown/DropdownButton';
 import { users } from 'constants/UserData/earlyInvestorsData';
 import { EarlyInvestorsColumn } from 'constants/columnUtility';
-import DatatableTables from 'components/table/Table';
+import Table from 'components/Table/Table';
 
 import './EarlyInvestors.css';
 import DeleteUserModel from 'components/UI/Model/DeleteUserModel';
 
-
-
 const EarlyInvestors = () => {
   const [getEarlyAccess, setGetEarlyAccess] = useState(true);
-  const handelSort = () => {
-  };
-  const handleChange = () => { 
-  }
+  const handelSort = () => {};
+  const handleChange = () => {};
   const [usersData, setUserData] = useState(users);
   const [modal, setModal] = useState(false);
 
@@ -36,29 +25,25 @@ const EarlyInvestors = () => {
       'Last 15days': moment().subtract(15, 'd').format('MM/DD/YYYY'),
     },
     {
-      'Last 1month': moment()
-        .subtract(1, 'month')
-        .format('MM/DD/YYYY'),
+      'Last 1month': moment().subtract(1, 'month').format('MM/DD/YYYY'),
     },
     {
-      'Last 3month': moment()
-        .subtract(3, 'month')
-        .format('MM/DD/YYYY'),
+      'Last 3month': moment().subtract(3, 'month').format('MM/DD/YYYY'),
     },
   ];
-  useEffect( () => {
+  useEffect(() => {
     const sdetail = users.map(item => ({
       email: item.email,
       registration_date: new Date(item.createdAt).toLocaleString(),
-      status:item.status,
+      status: item.status,
       action: (
         <div className="d-flex justify-content-center" key={item._id}>
-            <i className="fa fa-trash" role="button" onClick={() => setModal(true)}/>
+          <i className="fa fa-trash" role="button" onClick={() => setModal(true)} />
         </div>
       ),
     }));
-    setUserData(sdetail)
-  },[users])
+    setUserData(sdetail);
+  }, [users]);
   return (
     <div className="page-content">
       <Container fluid>
@@ -69,10 +54,11 @@ const EarlyInvestors = () => {
                 <Row>
                   <div className="Button-items d-flex justify-content-between">
                     <div className="d-flex align-items-center">
-                      <ButtonDropDown 
-                      title= 'Registration'
-                      options={DropDownButtonData}
-                      name="startDate"/>
+                      <ButtonDropDown
+                        title="Registration"
+                        options={DropDownButtonData}
+                        name="startDate"
+                      />
                       <div className="d-flex ms-2">
                         <span>Get Early Access</span>
                         <Switch
@@ -104,11 +90,13 @@ const EarlyInvestors = () => {
                     </div>
                   </div>
                 </Row>
-                {modal && <DeleteUserModel   isOpen={modal} onClose={setModal} />}
-                <DatatableTables column={EarlyInvestorsColumn}
-                    row={usersData}
-                    hidePaging
-                    handelSort={handelSort}/>
+                {modal && <DeleteUserModel isOpen={modal} onClose={setModal} />}
+                <Table
+                  column={EarlyInvestorsColumn}
+                  row={usersData}
+                  hidePaging
+                  handelSort={handelSort}
+                />
               </CardBody>
             </Card>
           </Col>
@@ -116,6 +104,6 @@ const EarlyInvestors = () => {
       </Container>
     </div>
   );
-}
+};
 
 export default EarlyInvestors;

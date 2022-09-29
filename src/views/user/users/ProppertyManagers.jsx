@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, CardBody, Col, Container, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import DatatableTables from 'components/table/Table';
+import DatatableTables from 'components/Table/Table';
 import Breadcrumb from 'components/UI/Common/Breadcrumb';
 import CreatePropertyManagerModel from 'components/UI/Model/CreatePropertyManagerModel';
 import { propertyManagersColumn } from 'constants/columnUtility';
@@ -16,11 +16,9 @@ const ProppertyManagers = () => {
   const [deleteModal, setDeleteModal] = useState(false);
   const [blockModal, setBlockModal] = useState(false);
   const [usersData, setUserData] = useState(PropertyManagersData);
-  const handelSort = () => {
-  };
-  const handleChange = () => { 
-  }
-  const breadcrumbData=[{name:"Property Managers", link:"/property-managers"}];
+  const handelSort = () => {};
+  const handleChange = () => {};
+  const breadcrumbData = [{ name: 'Property Managers', link: '/property-managers' }];
   useEffect(() => {
     const sdetail = PropertyManagersData.map(item => ({
       company_name: item.company_name,
@@ -29,8 +27,11 @@ const ProppertyManagers = () => {
       status: item.status,
       action: (
         <div className="d-flex justify-content-evenly align-items-center" key={item._id}>
-          <Link className="text-dark" to="/view-user"
-            onClick={() => localStorage.setItem('userid', item._id)}>
+          <Link
+            className="text-dark"
+            to="/view-user"
+            onClick={() => localStorage.setItem('userid', item._id)}
+          >
             <i className="fa fa-eye" role="button" />
           </Link>
           {item.isBlackListed ? <WhiteListUserModel /> : <BlockUserModel />}
@@ -43,10 +44,7 @@ const ProppertyManagers = () => {
   return (
     <div className="page-content">
       <Container fluid>
-        <Breadcrumb
-          name="User Management"
-          items={breadcrumbData}
-        />
+        <Breadcrumb name="User Management" items={breadcrumbData} />
         <Row>
           <Col xl={12}>
             <Card>
@@ -90,5 +88,5 @@ const ProppertyManagers = () => {
       </Container>
     </div>
   );
-}
+};
 export default ProppertyManagers;
