@@ -3,6 +3,7 @@ import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap
 
 const ButtonDropDown = ({ title, options, onClick, name, onlyvalue }) => {
   const [open, setOpen] = useState(false);
+  const dropDownToggler = () => setOpen(e => !e)
   const handleChange = (e, val) => {
     if (val) {
       onClick(prev => ({
@@ -22,7 +23,7 @@ const ButtonDropDown = ({ title, options, onClick, name, onlyvalue }) => {
   };
   return (
     <div>
-      <Dropdown toggle={() => setOpen(e => !e)} isOpen={open}>
+      <Dropdown toggle={dropDownToggler} isOpen={open}>
         <DropdownToggle caret color="primary" className="dropdownColor">
           {title}
           <i className="mdi mdi-chevron-down ml-2" />
@@ -39,7 +40,6 @@ const ButtonDropDown = ({ title, options, onClick, name, onlyvalue }) => {
             </DropdownItem>
           )}
           {options.map(item => {
-          
             if (typeof item === 'object') {
               return (
                 <DropdownItem

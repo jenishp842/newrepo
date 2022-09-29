@@ -6,7 +6,7 @@ import './layout.css';
 
 
 
-function Sidebar({ isMenuOpened }) {
+const Sidebar = ({ isMenuOpened }) => {
   const { pathname } = window.location;
   const [nestedIndex, setNestedIndex] = useState(0);
   const history = useHistory();

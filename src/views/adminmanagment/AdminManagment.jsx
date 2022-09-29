@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Container } from 'reactstrap';
-import Table from 'components/Table/Table';
 import '../viewcommon.css';
-import ButtonDropDown from 'components/Dropdown/DropdownButton';
 import RenderIf from 'components/RenderIf';
 import { adminColumn } from 'constants/tableColumn';
 import Breadcrumb from 'components/BreadCrumb';
 import CreateModal from 'components/UI/Model/adminModals/CreateAdmin';
+import Table from 'components/Table/Table';
 import LogoLoader from 'components/UI/Spinner/LogoSpinner';
 import ActionCell from 'components/ActionButton';
 import DeleteModal from 'components/UI/Model/DeleteModal';
+import ButtonDropDown from 'components/Dropdown/DropdownButton';
 
 const AdminManagement = () => {
   const [event, setEvent] = useState('');

@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { hideModal } from 'store/actions';
 
-// eslint-disable-next-line no-unused-vars
-const AlertMessageModal = props => {
+const AlertMessageModal = () => {
   const { title, message, notifyType, redirectURL, buttonClick, withButton } = useSelector(
     state => state.modal,
   );

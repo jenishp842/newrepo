@@ -1,0 +1,9 @@
+.view-user-list>div>label{
+    font-size: 17px;
+}
+.view-user-list>div.span{
+    font-size: 17px;
+}
+.view-user-list>div{
+    margin: 25px 0px;
+}

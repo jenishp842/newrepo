@@ -15,7 +15,7 @@ const Confirm2faModal = ({ isOpen }) => {
       setChecked(true)
       setTimeout(() => setCopied(false), 1200);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

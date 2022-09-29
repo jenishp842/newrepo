@@ -34,7 +34,6 @@ export default function* errorHandler({
           Authorization: `Bearer ${authToken}`,
         },
       };
-      // eslint-disable-next-line no-lonely-if
       if (apiType === "get") {
         response = yield axiosMain.get(endpoint, config);
       } else if (apiType === "post") {
