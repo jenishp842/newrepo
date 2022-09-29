@@ -48,12 +48,7 @@ const WalletDepositConfirmModal = ({ isOpen, close }) => {
           <Button className="btn button__remove px-4 mx-1" onClick={() => close(false)}>
             Discard
           </Button>
-          <Button
-            className="btn button__primary px-4 mx-1"
-            onClick={() => {
-              handleSubmit();
-            }}
-          >
+          <Button className="btn button__primary px-4 mx-1" onClick={handleSubmit}>
             Confirm
           </Button>
         </div>

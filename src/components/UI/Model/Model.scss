@@ -8,16 +8,13 @@
   box-shadow: none;
 }
 .mdb-datatable-filter {
-  display: none !important;
+  display: none ;
 }
 
 .react-tel-input input.form-control {
   width: 100%;
   height: 50px;
 }
-
-
-
 
 .form-group {
   width: 100%;
@@ -61,10 +58,16 @@
   .btn-continue,
   .btn-continue:hover {
     width: 100%;
-    background-color: #12ec69 !important;
-    border: 2px solid #12ec69 !important;
-    color: black !important;
-    box-shadow: none !important;
+    background: #2b32b2 ;
+    border: 2px solid #2b32b2;
+    color: black ;
+    box-shadow: none ;
+  }
+  .btn:first-child:hover{
+    background: #2b32b2 ;
+    color: #000000;
+    border: 2px solid #2b32b2;
+    box-shadow: none ;
   }
   
   // Wallet Deposit Confirm

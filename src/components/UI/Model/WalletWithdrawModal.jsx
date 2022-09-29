@@ -62,7 +62,6 @@ const WalletWithdrawModal = ({ isOpen, close }) => {
                 type="text"
                 value="Mogul Wallet"
                 label="From"
-                errorMessage="Address is required"
                 disabled
                 className="mb-3"
               />
@@ -89,12 +88,7 @@ const WalletWithdrawModal = ({ isOpen, close }) => {
           </div>
         </div>
         <div className="modal-footer justify-content-center pt-0">
-          <Button
-            className="btn btn-continue"
-            onClick={() => {
-              handleSubmit();
-            }}
-          >
+          <Button className="btn btn-continue" onClick={handleSubmit}>
             Confirm Transaction
           </Button>
         </div>
