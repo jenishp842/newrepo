@@ -2,19 +2,18 @@ import React, { useState } from 'react';
 import '../modal.css';
 import './multiselct.css';
 import { Modal } from 'reactstrap';
-import { investors } from 'constants/tableColumn';
 
-const MultipleSelctModal = ({ isOpen, close, title }) => {
+const MultipleSelctModal = ({ isOpen, close, title, investors, select, show, buttonText }) => {
   const [users, setUsers] = useState([]);
   const [data, setData] = useState(investors);
 
   const handleChange = (e, user) => {
     const { checked } = e.target;
     if (checked) {
-      if (user === 'all') setUsers(data.map(item => item.name));
-      else setUsers([...users, user.name]);
+      if (user === 'all') setUsers(data.map(item => item[select]));
+      else setUsers([...users, user[select]]);
     } else if (user === 'all') setUsers([]);
-    else setUsers(users.filter(item => item !== user.name));
+    else setUsers(users.filter(item => item !== user[select]));
   };
   let timeout;
   const handleInput = e => {
@@ -25,7 +24,7 @@ const MultipleSelctModal = ({ isOpen, close, title }) => {
       return;
     }
     timeout = setTimeout(() => {
-      const searchData = investors.filter(item => item.name.toLowerCase().includes(val));
+      const searchData = investors.filter(item => item[show].toLowerCase().includes(val));
       setData(searchData);
     }, 800);
   };
@@ -53,14 +52,14 @@ const MultipleSelctModal = ({ isOpen, close, title }) => {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div className='w-100 position-relative'>
+              <div className="w-100 position-relative">
                 <input
                   type="text"
                   className="search-box1 w-100"
                   onChange={handleInput}
                   placeholder="Search investors"
                 />
-                <i className="mdi mdi-magnify search-icon fa-2x glass"  />
+                <i className="mdi mdi-magnify search-icon fa-2x glass" />
               </div>
             </div>
             <div className="modal-body">
@@ -70,11 +69,11 @@ const MultipleSelctModal = ({ isOpen, close, title }) => {
               </div>
               {data.map(item => (
                 <div key={item.name} className="abc">
-                  <div>{item.name}</div>
+                  <div>{item[show || select]}</div>
                   <input
                     type="checkbox"
                     onChange={e => handleChange(e, item)}
-                    checked={users.includes(item.name)}
+                    checked={users.includes(item[select])}
                   />
                 </div>
               ))}
@@ -82,10 +81,10 @@ const MultipleSelctModal = ({ isOpen, close, title }) => {
             <div className="modal-footer d-flex justify-content-center">
               <button
                 type="button"
-                className="btn btn-primary waves-effect dropdownColor w-25"
+                className="btn btn-primary waves-effect dropdownColor w-50"
                 data-dismiss="modal"
               >
-                Done
+                {buttonText || 'Done'}
               </button>
             </div>
           </Modal>

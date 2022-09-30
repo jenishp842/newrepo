@@ -113,14 +113,10 @@ const DatatableTables = ({ column, action, row, handelSort }) => {
     }
     if (row === 'loading') {
       const skelData = {};
-      const rowloading = [];
       column.forEach(item => {
         skelData[item.field] = <div className="skel" />;
       });
-      for (let i = 0; i < 4; ) {
-        rowloading.push(skelData);
-        i += 1;
-      }
+      const rowloading = [...new Array(4)].map(() => skelData);
       setData(prev => ({ ...prev, rows: rowloading }));
       return;
     }
@@ -136,7 +132,7 @@ const DatatableTables = ({ column, action, row, handelSort }) => {
             striped
             bordered
             data={data}
-            // displayEntries={false}
+            displayEntries={false}
             onSort={handelSort}
             noRecordsFoundLabel="No record found"
           />

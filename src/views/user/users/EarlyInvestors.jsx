@@ -11,9 +11,12 @@ import Table from 'components/Table/Table';
 
 import './EarlyInvestors.css';
 import DeleteUserModel from 'components/UI/Model/DeleteUserModel';
+import MultipleSelctModal from 'components/UI/Model/multipleSelect/multipleSelectModal';
+import RenderIf from 'components/RenderIf';
 
 const EarlyInvestors = () => {
   const [getEarlyAccess, setGetEarlyAccess] = useState(true);
+  const [sendPassword, setSendPassword] = useState(false);
   const handelSort = () => {};
   const handleChange = () => {};
   const [usersData, setUserData] = useState(users);
@@ -44,6 +47,9 @@ const EarlyInvestors = () => {
     }));
     setUserData(sdetail);
   }, [users]);
+  const handleSendPassword = () => {
+    setSendPassword(prev => !prev);
+  };
   return (
     <div className="page-content">
       <Container fluid>
@@ -71,7 +77,9 @@ const EarlyInvestors = () => {
                       </div>
                     </div>
                     <div className="d-flex">
-                      <Button color="primary">Send Temporary Password</Button>
+                      <Button color="primary" onClick={handleSendPassword}>
+                        Send Temporary Password
+                      </Button>
                       <Button className="ms-2" color="primary">
                         Add User
                       </Button>
@@ -90,6 +98,17 @@ const EarlyInvestors = () => {
                     </div>
                   </div>
                 </Row>
+                <RenderIf render={sendPassword}>
+                  <MultipleSelctModal
+                    investors={usersData}
+                    isOpen
+                    select="email"
+                    show="email"
+                    title="Select investors"
+                    buttonText="Send"
+                    close={handleSendPassword}
+                  />
+                </RenderIf>
                 {modal && <DeleteUserModel isOpen={modal} onClose={setModal} />}
                 <Table
                   column={EarlyInvestorsColumn}

@@ -1,7 +1,7 @@
 export const users = [
   {
     _id:12321,
-    email:"text@123.com",
+    email:"xyz@123.com",
     registration_date:"27/02/2022",
     status:"password sent",
     action:"",
@@ -15,14 +15,14 @@ export const users = [
   },
   {
     _id:12322,
-    email:"text@123.com",
+    email:"test@123.com",
     registration_date:"27/02/2022",
     status:"password sent",
     action:"",
   },
   {
     _id:1232,
-    email:"text@123.com",
+    email:"abcd@123.com",
     registration_date:"27/02/2022",
     status:"password sent",
     action:"",
@@ -36,7 +36,7 @@ export const users = [
   },
   {
     _id:1218,
-    email:"text@123.com",
+    email:"test3@123.com",
     registration_date:"27/02/2022",
     status:"password sent",
     action:"",
@@ -50,7 +50,7 @@ export const users = [
   },
   {
     _id:12175,
-    email:"text@123.com",
+    email:"test4@123.com",
     registration_date:"27/02/2022",
     status:"password sent",
     action:"",

@@ -1,8 +1,11 @@
 import { put } from 'redux-saga/effects';
+// import errorHandler from 'utils/apiHandler';
 // import { axios } from '../../../http';
 import { loginSuccess, loginFail, loginStart, otpVerifySuccess } from '../../actions';
 
-export function* loginSaga() {
+export function* loginSaga(action) {
+  const { email, password } = action.payload;
+  console.log(email, password);
   yield put(loginStart());
   try {
     // const response = yield axios.get('/api');
@@ -10,7 +13,7 @@ export function* loginSaga() {
       status: 200,
       data: { isFirstTimeLogin: true, isForcePasswordUpdate: false, isSuperAdmin: false },
     };
-    if (response.status===200) {
+    if (response.status === 200) {
       yield put(loginSuccess(response.data));
       // yield call([localStorage, 'setItem'], 'authToken', response.data.token);
     } else {
@@ -37,11 +40,26 @@ export function* loginSaga() {
       yield put(loginFail('Something went wrong! Please try again.'));
     }
   }
+  // yield errorHandler({
+  //   endpoint: '/auth/admin/login',
+  //   successHandler: yield function* (response) {
+  //     console.log(response);
+  //     const { data } = response;
+  //     yield put(loginSuccess(data));
+  //   },
+  //   failHandler: yield function* (response) {
+  //     yield console.log(response);
+  //     // yield put(loginFail(response));
+  //   },
+  //   payload: { email, password },
+  //   failHandlerType: 'CUSTOM',
+  //   apiType: 'post',
+  // });
 }
 
 export function* otpVerifySaga() {
   // yield put(loginStart());
-  yield put(otpVerifySuccess())
+  yield put(otpVerifySuccess());
 }
 
 export function* authenticationValidatorSaga() {
